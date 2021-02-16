@@ -10,6 +10,4 @@ Rates in smart contract can be updated in the admin.php to renew the most recent
 Smart Contracts w/ Centralised Database:
 The centralized database used in this project is PHPMyAdmin. Database will be tabulated with incoming generated/usages/billed/paid values in order to provides values neccessary to interact with smart contract such as outstanding values.
 
-Fully Decentralised Smart Contract:
-The decentralised simple database existed in the smart contracts can be used to extract daily/monthly data values, this approach of slightly costly in order to achieve the goal of being fully decentralized.
 
