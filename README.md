@@ -1,5 +1,6 @@
 # NTU_FYP_ENERGY_ETH_SMARTCONTRACT
 **PROJECT OVERVIEW**
+
 This project deploy Ethereum Smart Contract along with Web3.js to provide a web interactive smart contract deployment to provide energy trading transaction platform for microgrid user.
 
 Ethereum smart contracts provides ERC-20 Token called the "energyCoin" in this particular project, which can be used as a token to transact outstanding payment by microgrid user.
@@ -12,15 +13,21 @@ In this project, there will be two different nature of smart contract to simulat
 **1. Ethereum Smart Contracts w/ Centralised Database:**
 The centralized database used in this project is PHPMyAdmin. Database will be tabulated with incoming generated/usages/billed/paid values in order to provides values neccessary to interact with smart contract such as outstanding values.
 
-***Simulation explained:***
-(Owner) Microgrid's values inserted to database were values obtained by OPAL-RT model which simulate a transmission and data were collected and later were used in the project for a realistic scenario.
+***Simulation explained: ***
+
+(Owner) Microgrid's values from datasheet inserted to database, datasheet values were obtained by OPAL-RT model which simulate a transmission and data were collected and later were used in the project for a realistic scenario.
+
 (Customer) Customer's usages value were tabulated randomly.
+
+*coded in centralisedSimulation.php
 
 The simulated data used in this simulated could also be replaced by an actual real time smart meter API for data transmission if possible. 
 
 ***Functions implemented in centralised database:***
 - Able to simulate real-time second by second basis energy transmission within the microgrid owner and its respectively customer.
 - Able to calculate and fairly distribute energy generated to each consumer according to their past 15mins usage pattern.
+
+*coded in centralisedSimulation.php
 
 ***Advantages:***
 - No extra gases fees(transaction cost) is needed to pay in Ether Smart Contract to maintain this type centralised database.
