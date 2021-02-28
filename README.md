@@ -1,5 +1,5 @@
 # NTU_FYP_ENERGY_ETH_SMARTCONTRACT
-
+**PROJECT OVERVIEW**
 This project deploy Ethereum Smart Contract along with Web3.js to provide a web interactive smart contract deployment to provide energy trading transaction platform for microgrid user.
 
 Ethereum smart contracts provides ERC-20 Token called the "energyCoin" in this particular project, which can be used as a token to transact outstanding payment by microgrid user.
