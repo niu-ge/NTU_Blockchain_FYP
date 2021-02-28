@@ -25,6 +25,7 @@ The simulated data used in this simulated could also be replaced by an actual re
 ***Advantages:***
 - No extra gases fees(transaction cost) is needed to pay in Ether Smart Contract to maintain this type centralised database.
 - Application will be flexible/accessible when dealing data within centralised database.
+
 ***Disadvantages:***
 - Centralised database means that this application is not fully decentralised hence centralised database possess the risk of being maliciously edit by others.
 
@@ -38,9 +39,10 @@ Only customer usages value is needed to stored in the decentralised smart contra
 
 ***Functions implemented in decentralised database:***
 - String block will be used as database in the smart contract, addition function established within smart contract to achieve the desired outcome of maintain a decentralised database.
-- 
+
 ***Advantages:***
 - Extremely secure and decentralised application, no maliciously editting is allowed in this type of fully decentralised application.
+
 ***Disadvantages:***
 - Calculations and computation of data values must be done outside the smart contract to save costs hence causing the application to be inflexible.
 - High frequency of updating database values is impossible as it might results to unexpectedly high transaction fees while maintain this type of database.
