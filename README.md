@@ -48,3 +48,5 @@ Only customer usages value is needed to stored in the decentralised smart contra
 - High frequency of updating database values is impossible as it might results to unexpectedly high transaction fees while maintain this type of database.
 
 
+
+TEST AND WORKING ON APACHE/MYSQL server using XXAMP
