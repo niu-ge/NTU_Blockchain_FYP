@@ -1,22 +1,65 @@
-<html>
-   <head>
-      <link href="stylesheet/admin.css" rel="stylesheet" type="text/css" />
+<html lang="en">
+<head>
+  <title>Denergy Centralised Database Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="stylesheet/admin.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
       <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-      <script src="centralisedAdminScript.js"></script>
-      <div id="loadDiv">
-         <img id="loading-image" src="images/loading.gif" alt="Loading..." />
-      </div>
-      <div id="main">
-         <div id="header">
-            <div id="logo"><img src="../images/logo.png"></img></div>
-         </div>
-         <div id="content">
-            <p id="accountAddr"></p>
+	  <script src="centralisedAdminScript.js"></script>  
+</head>
+<body>
+<div id="wrapper">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"><img src="../images/logo.png"></img></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="home.php">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="decentralisedAdmin.php">Decentralised DB Smart Contract Administration</a></li>
+            <li><a href="centralisedAdmin.php">Centralised DB Smart Contract Administration</a></li>
+          </ul>
+        </li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Contracts<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="decentralisedContract.php">Decentralised DB Contract</a></li>
+            <li><a href="centralisedDBContract.php">Centralised DB Contract</a></li>
+          </ul>
+        </li>
+        <li><a href="centralisedSimulation.php">Transmission Simulation</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id="loadDiv">
+            <img id="loading-image" src="images/loading.gif" alt="Loading..." />
+</div>
+<div id="main">
+<div id="content">
+<h3>CENTRALISED DATABASE SMART CONTRACT ADMIN PAGE.</h3>
+<br/>
+<br/>
+<br/>
+<br/>
+<p id="accountAddr"></p>
             <script>
                var account = web3.currentProvider.selectedAddress;
-                     $('#accountAddr').html("Your current metamask address : " + account +"<br /> Welcome to the admin page of smart contract, what do you wish to do? </br> ( Note: Please make sure you are the smart contract owner to perform actions on this page to avoid unneccessary gas fees.)");
+                     $('#accountAddr').html("Your current metamask address : " + account +"<br /> Welcome to the admin page of smart contract, what do you wish to do? <br/><br/><br/><br/> <p style='color:red;font-size:12px;'>( Note: Please make sure you are the smart contract owner to perform actions on this page to avoid unneccessary gas fees.)</p>");
             </script>
             <br/>
             <br/>
@@ -54,60 +97,28 @@
                      </td>
                      <td><button onclick="updateRateByOwner()">Update!</button></td>
                      <td>
-                        <a href="https://ropsten.etherscan.io/address/0x58fEA20509b4Bb55582cdF6B851a04540fc50593">Link</a>
+                        <a href="https://ropsten.etherscan.io/address/0x14a3CA00f184425b0fc55198063F178AE16ed12b">Link</a>
                      </td>
                   </tr>
                   <br/>
                </table>
-               <!--<table id ="smartTable">
-                  <tr>
-                  	<th>Token Purchases</th>
-                  	<th>RT Ether to SGD Rates</th>
-                  	<th>RT ETH-energyCoin Rate</th>
-                  	<th>Current Smart Contract Rates</th>
-                  	<th>Update rates on smart contracts</th>
-                  	<th>View on CoinGecko</th>
-                  </tr>
-                  <tr>
-                  	<td>ETH Purchasing Price</td>
-                  	<td><?php
-                     $url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=sgd&ids=ethereum';
-                     $data = file_get_contents($url);
-                     $priceInfo = json_decode($data);
-                     $priceData = $priceInfo[0]->current_price;
-                     
-                     echo $priceInfo[0]->current_price;
-                     
-                     ?>
-                  	</td>
-                  	<td><?php echo $priceData/100 ?></td>
-                  	<td><p id="contractRate"></p></td>
-                  	<td><button onclick="updateRateByOwner()">Update!</button></td>
-                  	<td>
-                  	<a href="https://www.coingecko.com/en/coins/ethereum/sgd">Link</a>
-                  	</td>
-                  </tr>
-                  <br/>
-                  </table> -->
-            </div>
-         </div>
-         <div id="footer">
-            <p> A Final Year Project Created by </p>
-            <p>Author: Koh Jun Yao, Denny <
-               <a href="mailto:jkoh081@e.ntu.edu.sg">jkoh081@e.ntu.edu.sg</a>>
-            </p>
-         </div>
-      </div>
-      <script>
-         if(account != null){
-                   $(document).ready(function() {
-                   $('#loadDiv').hide();
-                   });
-                   document.getElementById("main").style.display = 'block';
-          }else{
-         	 alert("Loading failed!, failure to detect metamask account logged on, please make sure metamask is logged on in this site");
-          }
-                
-      </script>
-      </body>
+</div>
+</div>
+</div>
+	  <div id="footer">
+	  <p> A Final Year Project Created by </p>
+	  <p>Author: Koh Jun Yao, Denny <
+	  <a href="mailto:jkoh081@e.ntu.edu.sg">jkoh081@e.ntu.edu.sg</a>></p>
+	  </div>
+	  <script>
+		if(account != null){
+            $(document).ready(function() {
+            $('#loadDiv').hide();
+            });
+            document.getElementById("main").style.display = 'block';
+		 }else{
+			 alert("Loading failed!, failure to detect metamask account logged on, please make sure metamask is logged on in this site");
+		 }
+         </script>
+</body>
 </html>

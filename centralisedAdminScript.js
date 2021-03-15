@@ -1,4 +1,4 @@
-var address ="0x14a3CA00f184425b0fc55198063F178AE16ed12b";
+var address ="0x55B5Cb2972054484028B2111A75666D535eB5a0d";
 var abi = [
 	{
 		"inputs": [],
@@ -223,6 +223,19 @@ var abi = [
 	},
 	{
 		"inputs": [],
+		"name": "customerDataString",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "decimals",
 		"outputs": [
 			{
@@ -308,7 +321,33 @@ var abi = [
 	},
 	{
 		"inputs": [],
+		"name": "getCustomerDB",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "getLogForDB",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getOwnerDB",
 		"outputs": [
 			{
 				"internalType": "string",
@@ -340,6 +379,19 @@ var abi = [
 				"internalType": "string",
 				"name": "",
 				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getTokenRate",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -387,6 +439,32 @@ var abi = [
 	{
 		"inputs": [],
 		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "negaWattString",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "ownerDataString",
 		"outputs": [
 			{
 				"internalType": "string",
@@ -464,6 +542,32 @@ var abi = [
 	},
 	{
 		"inputs": [],
+		"name": "tempString",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "tokenPrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "totalSupply",
 		"outputs": [
 			{
@@ -525,6 +629,32 @@ var abi = [
 				"type": "bool"
 			}
 		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "dataBlock",
+				"type": "string"
+			}
+		],
+		"name": "updateMonthlyConsumerDB",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "dataBlock",
+				"type": "string"
+			}
+		],
+		"name": "updateMonthlyOwnerDB",
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}

@@ -1,23 +1,24 @@
 <html lang="en">
 <head>
-  <title>Denergy Decentralised Database Admin</title>
+  <title>Denergy Decentralised DB Smart Contract</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="stylesheet/admin.css" rel="stylesheet" type="text/css" />
+  <link href="stylesheet/main3.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
-      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-	  <script src="decentralisedAdminScript.js"></script>  
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="decentralisedTestScript.js"></script>
+
 </head>
 <body>
 <div id="wrapper">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <button type="button" class="navbar-toggle" data-toggle="t" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
@@ -38,7 +39,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Contracts<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="decentralisedContract.php">Decentralised DB Contract</a></li>
-            <li><a href="centralisedDBContract.php">Centralised DB Contract</a></li>
+            <li><a href="centralisedContract.php">Centralised DB Contract</a></li>
           </ul>
         </li>
         <li><a href="centralisedSimulation.php">Transmission Simulation</a></li>
@@ -49,33 +50,37 @@
 <div id="loadDiv">
             <img id="loading-image" src="images/loading.gif" alt="Loading..." />
 </div>
-<div id="main">
-<div id="content">
-<h4>DECENTRALISED DATABASE SMART CONTRACT ADMIN PAGE.</h4>
-<br/>
-<br/>
-<p id="accountAddr"></p>
-<script>
-		var seconds = 0;
-		 var account = web3.currentProvider.selectedAddress;
-         $('#accountAddr').html("Your current metamask address : " + account +"<br /> Welcome to the admin page of smart contract, what do you wish to do? <br/><br/><br/><br/> <p style='color:red;font-size:12px;'>( Note: Please make sure you are the smart contract owner to perform actions on this page to avoid unneccessary gas fees.)</p>");
-		 checkRates();
-	  </script>
-	  	  <br/>
-	  <br/>
-	  <div id="energyTable">
-	  <p style="text-align:center"> Current available smart contracts associated with "DEnergy" Web Interface</p>
-	  <table id ="smartTable">
-		<tr>
-			<th>Energy Company Name</th>
-			<th>Rates and Charges</th>
-			<th>Current Smart Contract Rates</th>
-			<th>Update rates on smart contracts</th>
-			<th>View on Etherscan</th>
-		</tr>
-		<tr>
-			<td>DEnergy Microgrid Smart Contract</td>
-			<td>Rates dated on <?php $data_scrapped = file_get_contents('https://www.ema.gov.sg/Residential_Electricity_Tariffs.aspx');
+ <div id="main">
+            <div id="chartDiv">
+			<h2>WELCOME TO DENERGY,</h2>
+			<h3>A DECENTRALIZED ENERGY TRADING MARKET BASED ON ETHEREUM SMART CONTRACT</h3>
+			<p> [DECENTRALISED DATABASE VERSION]</p>
+			<div class="infoDiv">
+			<p>ACCOUNT INFORMATION:</p>
+			</div>
+			<p id="accountAddr"></p>
+			<script>
+			var account = web3.currentProvider.selectedAddress;
+			getAccountInfo(account);
+			getBalance();
+			</script>
+			<div class="infoDiv">
+			<p>ERC-20 TOKENS - [energyCoin] INFORMATION:</p>
+			</div>
+			<div id ="coinDiv">
+			<table>
+			<tr>
+			<th><p id="coinBalance"></p></th><th><img src="../images/eCoin.png"></img></th>
+			</tr>
+			</table>
+			</div>
+			<div id ="coinDesc">
+			<p id="crytoRates">Token Details: 1 energyCoin(eC) is equivalent to SGD$100</p>
+			</div>
+			<div class="infoDiv">
+			<p>CHARGING RATES INFORMATION: </p>
+			</div>
+            <p id="rate">Rates dated on <?php $data_scrapped = file_get_contents('https://www.ema.gov.sg/Residential_Electricity_Tariffs.aspx');
                   $the_start = explode('<div class="tarrif-date">',$data_scrapped);
                   $the_end = explode('<div class="tarrif-rates">',$the_start[1]);
                   $text = str_replace(array("</div>", "</span>","<br />"), '', $the_end[0]);
@@ -89,50 +94,50 @@
                   $string = $text;
                   $int = intval(preg_replace('/[^0-9]+/', '', $string), 10);
                   echo "<script>var rate = $int;</script>";
-                  ?>
-			</td>
-			<td><p id="contractRate"></p></td>
-			<td><button onclick="updateRateByOwner()">Update!</button></td>
-			<td>
-			<a href="https://ropsten.etherscan.io/address/0x13a7220184e62f24ae233C8f9fB1418506159025">Link</a>
-			</td>
-		</tr>
-		<br/>
-		</table>
-		<p> Decentralised Databases Section </p>
-		<table id ="smartTable">
-		<tr>
-			<th>Update Customer Databases</th>
-		</tr>
-		<tr>
-			<td><input type="file" name="inputfile"
-            id="inputfile"> 
-    <br> 
-      
-    <script type="text/javascript"> 
-        document.getElementById('inputfile') 
-            .addEventListener('change', function() { 
-              
-            var fr=new FileReader(); 
-            fr.onload=function(){ 
-               var data=fr.result;
-			   updateCustomerDB(data);
-            } 
-              
-            fr.readAsText(this.files[0]); 
-        }) 
-    </script></td>
-		</tr>
-		<br/>
-		</table>
-		</div>
-</div>
-</div>
-	  <div id="footer">
-	  <p> A Final Year Project Created by </p>
-	  <p>Author: Koh Jun Yao, Denny <
-	  <a href="mailto:jkoh081@e.ntu.edu.sg">jkoh081@e.ntu.edu.sg</a>></p>
-	  </div>
+                  ?></p>
+			<div class="infoDiv">
+			<p>BILLING INFORMATION: </p>
+			</div>
+			<p>Based on current records, you currently has an outstanding balances of</p>
+			<p id ="owing"></p>
+			<p>in Watts</p>
+			   <div id="buttonWrap">
+			   <button data-type="square" onclick="myPurchase(balance,String(balance),account)">Proceed to settle bills with smart contract</button>
+			   <span class="preloader"></span>
+			   </div>
+			   <br/>
+			   <div id="tLog">
+				<div class="infoDiv">
+				<p>SMART CONTRACT TRANSACTION LOG: </p>
+				</div>
+			   <div id="pBlock">
+			   <p id="pLog"></p>
+			   </div>
+			   </div>
+               <script>
+                  var seconds = 0;
+                  function incrementSeconds() {
+                  	seconds += 1;
+					purchaseLog();
+					if(seconds == 3){
+						getWallet(account);
+					}
+					if(seconds % 60 == 0){
+					getBalance();
+					}
+						
+                  }
+                  var cancel = setInterval(incrementSeconds, 1000);
+               </script>
+            </div>
+			</div>
+            <div id="footer">
+               <p> A Final Year Project Created by </p>
+               <p>Author: Koh Jun Yao, Denny
+                  <a href="mailto:jkoh081@e.ntu.edu.sg">jkoh081@e.ntu.edu.sg</a>>
+               </p>
+            </div>
+         </div>
 	  <script>
 		if(account != null){
             $(document).ready(function() {

@@ -1,23 +1,60 @@
-<html>
-   <head>
-      <link href="stylesheet/main3.css" rel="stylesheet" type="text/css" />
-      <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-      <script src="testScript.js"></script>
-   </head>
-   <body>
-      <div id="background">
-         <div id="loadDiv">
+<html lang="en">
+<head>
+  <title>Denergy Centralised DB Smart Contract</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="stylesheet/main3.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>	
+  <script src="testScript.js"></script>
+
+</head>
+<body>
+<div id="wrapper">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="t" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"><img src="../images/logo.png"></img></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="home.php">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="decentralisedAdmin.php">Decentralised DB Smart Contract Administration</a></li>
+            <li><a href="centralisedAdmin.php">Centralised DB Smart Contract Administration</a></li>
+          </ul>
+        </li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Contracts<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="decentralisedContract.php">Decentralised DB Contract</a></li>
+            <li><a href="centralisedDBContract.php">Centralised DB Contract</a></li>
+          </ul>
+        </li>
+        <li><a href="centralisedSimulation.php">Transmission Simulation</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id="loadDiv">
             <img id="loading-image" src="images/loading.gif" alt="Loading..." />
-         </div>
-         <div id="logo"><img src="../images/logo.png"></img></div>
-         <div id="main">
+</div>
+<div id="main">
             <div id="chartDiv">
                <h2>WELCOME TO DENERGY,</h2>
                <h3>A DECENTRALIZED ENERGY TRADING MARKET BASED ON ETHEREUM SMART CONTRACT</h3>
-               <p> [CENTRALISED DATABASAE VERSION]</p>
+               <p> [CENTRALISED DATABASE VERSION]</p>
                <div class="infoDiv">
                   <p>ACCOUNT INFORMATION:</p>
                </div>
@@ -94,24 +131,23 @@
                   var cancel = setInterval(incrementSeconds, 1000);
                </script>
             </div>
+			</div>
             <div id="footer">
                <p> A Final Year Project Created by </p>
-               <p>Author: Koh Jun Yao, Denny <
+               <p>Author: Koh Jun Yao, Denny
                   <a href="mailto:jkoh081@e.ntu.edu.sg">jkoh081@e.ntu.edu.sg</a>>
                </p>
             </div>
          </div>
-         <script>
-            if(account != null){
-                     $(document).ready(function() {
-                     $('#loadDiv').hide();
-                     });
-                     document.getElementById("main").style.display = 'block';
-            }else{
-             alert("Loading failed!, failure to detect metamask account logged on, please make sure metamask is logged on in this site");
-            }
-                  
+	  <script>
+		if(account != null){
+            $(document).ready(function() {
+            $('#loadDiv').hide();
+            });
+            document.getElementById("main").style.display = 'block';
+		 }else{
+			 alert("Loading failed!, failure to detect metamask account logged on, please make sure metamask is logged on in this site");
+		 }
          </script>
-      </div>
-   </body>
+</body>
 </html>

@@ -13,9 +13,9 @@
 
 mysqli_fetch_array($result))  
       {  
-	  $generatedOutput += (int)$row["generated"];
-	  $usagesOutput += (int)$row["usages"];
-	  $balanceOutput += (int)$row["available"];
+	  $generatedOutput += (float)$row["generated"];
+	  $usagesOutput += (float)$row["usages"];
+	  $balanceOutput += (float)$row["available"];
           
  }
  } 

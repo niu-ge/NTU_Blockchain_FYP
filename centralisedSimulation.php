@@ -31,14 +31,14 @@
                      var geneArrayValue = 1;
                      var dArrayValue = 2;
                      function getData() {
-                     	gValue = parseInt(stringArray[geneArrayValue]);
+                     	gValue = parseFloat(stringArray[geneArrayValue]);
                      	totalLoad = totalLoad+gValue;
                      	//availableLoad.innerText = "Generated(W): " + totalLoad +"W. ";
                      	geneArrayValue = geneArrayValue + 3;
                        return gValue;
                      }
                      function getDData() {
-                     	dValue = parseInt(stringArray[dArrayValue]);
+                     	dValue = parseFloat(stringArray[dArrayValue]);
                      	totalDemandLoad = totalDemandLoad+dValue;
                      	//demandLoad.innerText = "Own usages(W): " + totalDemandLoad +"W. ";
                      	dArrayValue = dArrayValue + 3;
@@ -672,7 +672,7 @@
       getTotalOwnerBalance();
       
       
-      if(seconds % 600 == 0){
+      if(seconds % 900 == 0){//15mins
       var ratio1 =0;
       var ratio2 =0;
       var ratio3 =0;
@@ -724,6 +724,6 @@
       
       }
       }
-      var cancel = setInterval(incrementSeconds, 1000);
+      var cancel = setInterval(incrementSeconds, 100);
    </script>
 </html>
