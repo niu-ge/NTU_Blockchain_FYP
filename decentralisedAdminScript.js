@@ -1,4 +1,4 @@
-var address ="0x55B5Cb2972054484028B2111A75666D535eB5a0d";
+var address = "0x2c6047F2F3c1Ea16334A97879e413434a9191f8f";
 var abi = [
 	{
 		"inputs": [],
@@ -29,6 +29,37 @@ var abi = [
 		],
 		"name": "Approval",
 		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "delegate",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "numTokens",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "destroy",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -69,6 +100,63 @@ var abi = [
 		"type": "event"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "noOfWatts",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "dateTime",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "wattString",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "buyerAddress",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "planNo",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "planString",
+				"type": "string"
+			}
+		],
+		"name": "buyKWH",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "currentRate",
+				"type": "uint256"
+			}
+		],
+		"name": "energyInit",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -93,6 +181,85 @@ var abi = [
 		],
 		"name": "insufficientTextEvent",
 		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "receiver",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "numTokens",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "buyer",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "numTokens",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "dataBlock",
+				"type": "string"
+			}
+		],
+		"name": "updateMonthlyConsumerDB",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "dataBlock",
+				"type": "string"
+			}
+		],
+		"name": "updateMonthlyOwnerDB",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -132,30 +299,6 @@ var abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "delegate",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "numTokens",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "availableLoadinKW",
 		"outputs": [
@@ -188,40 +331,6 @@ var abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "noOfWatts",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "dateTime",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "wattString",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "buyerAddress",
-				"type": "string"
-			}
-		],
-		"name": "buyKWH",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "customerDataString",
 		"outputs": [
@@ -245,26 +354,6 @@ var abi = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "destroy",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "currentRate",
-				"type": "uint256"
-			}
-		],
-		"name": "energyInit",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -490,6 +579,19 @@ var abi = [
 	},
 	{
 		"inputs": [],
+		"name": "pricePlan",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "purchasedKW",
 		"outputs": [
 			{
@@ -517,6 +619,19 @@ var abi = [
 	{
 		"inputs": [],
 		"name": "purchasingLogSubString",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "subscriptionAdd",
 		"outputs": [
 			{
 				"internalType": "string",
@@ -578,123 +693,42 @@ var abi = [
 		],
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "receiver",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "numTokens",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "buyer",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "numTokens",
-				"type": "uint256"
-			}
-		],
-		"name": "transferFrom",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "dataBlock",
-				"type": "string"
-			}
-		],
-		"name": "updateMonthlyConsumerDB",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "dataBlock",
-				"type": "string"
-			}
-		],
-		"name": "updateMonthlyOwnerDB",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	}
 ];
-function updateRateByOwner()
-{
-var contract;
-//alert(document.getElementById("noOfKWh").value);
-$(document).ready(function(){
-web3 = new Web3(web3.currentProvider);
-contract = new web3.eth.Contract(abi, address);
-contract.methods.energyInit(rate).send({from:account}).then(function(){
-checkRates();
-})
-// contract.methods.getPurchasedKW().call().then(function(purchasedKW){
-//   $('#purchasedKWH').html("Current overall purchased load: "+purchasedKW+" KWh");
-//})
-})
-}
 function checkRates(){
 var contract;
-$(document).ready(function(){
-web3 = new Web3(web3.currentProvider);
+var rates;
 contract = new web3.eth.Contract(abi, address);
 contract.methods.getCurrentRate().call().then(function(pricePerKW){
-$('#contractRate').html(""+pricePerKW+"");
-})
+$('#contractRate').html("<i class=\"fas fa-file-invoice-dollar\"></i> The current tariffs stated in the smart contract is $"+pricePerKW/10000+" dollar.");
 })
 }
-function updateCustomerDB(x){
+function updateRates(){
+var account;
+var accountAddr;
 var contract;
-//alert(document.getElementById("noOfKWh").value);
-$(document).ready(function(){
-web3 = new Web3(web3.currentProvider);
+const web3 = new Web3(window.web3.currentProvider);
+web3.eth.getAccounts(function(error, accounts) {
+account = accounts[0];
 contract = new web3.eth.Contract(abi, address);
-contract.methods.updateMonthlyConsumerDB(x).send({from:account});
+contract.methods.energyInit(rate).send({from:account}).then(function(){
+})
+});
+}
+function updateCustomerDB(x){
+var account;
+var accountAddr;
+var contract;
+const web3 = new Web3(window.web3.currentProvider);
+web3.eth.getAccounts(function(error, accounts) {
+account = accounts[0];
+contract = new web3.eth.Contract(abi, address);
+contract.methods.updateMonthlyConsumerDB(x).send({from:account}).then(function(){
+})
+});
 // contract.methods.getPurchasedKW().call().then(function(purchasedKW){
 //   $('#purchasedKWH').html("Current overall purchased load: "+purchasedKW+" KWh");
 //})
-})
 }
 function updateOwnerDB(x){
 var contract;

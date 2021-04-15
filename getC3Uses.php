@@ -1,7 +1,7 @@
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "microgriddb");  
+ $connect = mysqli_connect("localhost", "root", "", "microgriddb2");  
  $tempUsagesOutput1 = 0;
- $sql =   "SELECT * FROM `microgriddb`.`customerlog` WHERE `address` = '0x1A339DDBCD788Fda03312788d25b514Ad72aE209\r'";
+  $sql =  "SELECT * FROM `customerlog` WHERE `address` = '0x1A339DDBCD788Fda03312788d25b514Ad72aE209'";
  
  
  $result = mysqli_query($connect, $sql);  

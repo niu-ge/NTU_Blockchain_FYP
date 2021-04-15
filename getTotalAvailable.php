@@ -1,5 +1,5 @@
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "microgriddb");  
+ $connect = mysqli_connect("localhost", "root", "", "microgriddb2");  
  $generatedOutput = 0;
  $usagesOutput = 0;
  $balanceOutput = 0;

@@ -25,5 +25,5 @@ mysqli_fetch_array($result))
       $outstandingAmount = $billedOutput1 - $paidOutput1;
  }
  } 
- echo $outstandingAmount;
+ echo $subscriptionType1;
  ?>
